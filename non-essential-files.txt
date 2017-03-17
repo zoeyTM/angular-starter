@@ -1,4 +1,0 @@
-.git
-non-essential-files.txt
-non-essential-files.osx.txt
-README.md

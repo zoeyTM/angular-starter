@@ -34,26 +34,35 @@ git clone https://github.com/morgansliman/angular-starter my-proj
 cd my-proj
 ```
 
+## Install dependencies
+
+> See npm version notes above
+
+Install the npm packages described in the `package.json`:
+
+```shell
+npm install
+```
+
+The `npm install` command will first install all dependencies listed in `package.json`, then it will call `bower install` to install the front-end dependencies listed in `bower.json` ([AngularJS](https://angularjs.org/) & [UI-Router](https://ui-router.github.io/) by default).
+
+When Bower finishes installing its packages, it will call `gulp inject-bower` which will inject the newly installed dependencies into `src/client/index.html` automatically.
+
+> When installing additional packages with bower, always check your `index.html` file to be sure they were injected correctly. This code is not perfect yet; please [open an issue](https://github.com/morgansliman/angular-starter/issues) if you find an error in your dependency injections.
+
+
 ### Delete _non-essential_ files
 
-You can quickly delete the _non-essential_ files
-by entering the following commands while in the project folder:
+You can quickly delete the _non-essential_ files (`.git`)
+by entering the following command while in the project folder:
 
 > Note: this will also delete the README.md file. If you're reading this in your IDE, [open it in a browser first](https://github.com/morgansliman/angular-starter#delete-non-essential-files)!
 
-##### OS/X (bash)
 ```shell
-xargs rm -rf < non-essential-files.osx.txt
-rm src/app/*.spec*.ts
-rm non-essential-files.osx.txt
+gulp renew
 ```
 
-##### Windows
-```shell
-for /f %i in (non-essential-files.txt) do del %i /F /S /Q
-rd .git /s /q
-rd e2e /s /q
-```
+> Note: You will still need to manually edit the information inside of `package.json` and `bower.json`. (i.e., name, description, keywords, etc.)
 
 ### Create a new git repo
 You _could_ start writing code now and throw it all away when you're done.
@@ -74,28 +83,27 @@ Grab its address (e.g. *`https://github.com/<my-profile>/my-proj.git`*) and push
 git remote add origin <repo-address>
 git push -u origin master
 ```
-## Install npm packages
 
-> See npm version notes above
+## Start the app and verify that it works
 
-Install the npm packages described in the `package.json` and verify that it works:
+#### Start the app:
 
 ```shell
-npm install
 npm start
 ```
-
-
-The `npm install` command will first install all dependencies listed in `package.json`, then it will call `bower install` to install the front-end dependencies listed in `bower.json` ([AngularJS](https://angularjs.org/) & [UI-Router](https://ui-router.github.io/) by default).
-
-When Bower finishes installing its packages, it will call `gulp inject-bower` which will inject the newly installed dependencies into `src/client/index.html` automatically.
-
-> When installing additional packages with bower, always check your `index.html` file to be sure they were injected correctly. This code is not perfect yet; please [open an issue](https://github.com/morgansliman/angular-starter/issues) if you find an error in your dependency injections.
 
 The `npm start` command first compiles any `.sass` or `.scss` files within `src/client/sass` then auto-injects these along with all your custom AngularJS into the appropriate places in `index.html` then simultaneously re-compiles and runs the Express server in `src/server/index.js` using `gulp-nodemon`.
 
 > Changes made to any `.js`, `.sass`, or `.scss` files are tracked by `gulp-nodemon` and will restart the server, triggering a Sass re-compile and full auto-injection. Changes made to any `.html` file is tracked by `BrowserSync`, and will automatically live-reload the page. If this isn't working as expected, please [open an issue](https://github.com/morgansliman/angular-starter/issues).
 
+#### Verify that it works:
+
+Try changing the `<h1>` tag inside of `src/client/index.html` and watch your browser live-reload your changes when the file is saved!
+
+During startup, BrowserSync logs several IP adresses to the console. Open the appropriate address in another device (connected to the same network) and watch your changes live-reload to all browser instances at the same time! This makes testing your app in multiple environments much easier.
+
+#### Shutdown
+
 Shut it down manually with `Ctrl-C`.
 
-You're ready to write your application.
+Congrats! You're ready to write your application.
