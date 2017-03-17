@@ -62,7 +62,7 @@ by entering the following command while in the project folder:
 gulp renew
 ```
 
-> Note: You will still need to manually edit the information inside of `package.json` and `bower.json`. (i.e., name, description, keywords, etc.)
+> Note: For now, you will still need to manually edit the information inside of `package.json` and `bower.json`. (i.e., name, description, keywords, etc.)
 
 ### Create a new git repo
 You _could_ start writing code now and throw it all away when you're done.
@@ -100,7 +100,7 @@ The `npm start` command first compiles any `.sass` or `.scss` files within `src/
 
 Try changing the `<h1>` tag inside of `src/client/index.html` and watch your browser live-reload your changes when the file is saved!
 
-During startup, BrowserSync logs several IP adresses to the console. Open the appropriate address in another device (connected to the same network) and watch your changes live-reload to all browser instances at the same time! This makes testing your app in multiple environments much easier.
+During startup, BrowserSync logs several IP adresses to the console. Open the appropriate address in another device (connected to the same network) and watch your changes live-reload to all browser instances at the same time! This makes testing your app in multiple environments much easier. (read more about [BrowserSync](http://browsersync.io))
 
 #### Shutdown
 
