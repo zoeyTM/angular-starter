@@ -1,0 +1,27 @@
+{
+  "name": "angular-starter",
+  "description": "Starter template for AngularJS projects",
+  "main": "src/server/index.js",
+  "authors": [
+    "https://github.com/morgansliman"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "AngularJS",
+    "Angular-starter",
+    "starter"
+  ],
+  "homepage": "https://github.com/morgansliman/angular-starter",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-ui-router": "ui-router#^0.4.2"
+  }
+}

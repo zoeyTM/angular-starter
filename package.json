@@ -1,0 +1,49 @@
+{
+  "name": "angular-starter",
+  "version": "1.0.0",
+  "description": "Starter template for AngularJS projects",
+  "main": "src/server/index.js",
+  "scripts": {
+    "prestart": "gulp",
+    "start": "gulp start",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morgansliman/angular-starter.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "Angular-starter",
+    "starter"
+  ],
+  "author": "https://github.com/morgansliman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morgansliman/angular-starter/issues"
+  },
+  "homepage": "https://github.com/morgansliman/angular-starter#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-filter": "^5.0.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "sort-stream": "^1.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.8.6",
+    "morgan": "^1.8.1"
+  }
+}
