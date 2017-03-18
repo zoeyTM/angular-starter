@@ -107,3 +107,29 @@ During startup, BrowserSync logs several IP adresses to the console. Open the ap
 Shut it down manually with `Ctrl-C`.
 
 Congrats! You're ready to write your application.
+
+## Usage
+
+#### Command list (in no specific order):
+
+
+  - `gulp` - Compile Sass and auto-inject CSS/JS files into `index.html`
+  - `gulp styles` - Compile Sass (does not auto-inject)
+  - `gulp inject` - Auto-injects CSS/JS files from `src/client/app` into `index.html`
+  - `gulp inject-bower` - You shouldn't ever need to call this directly; automatically run by Bower after installing a new package
+  - `bower install` - Use this command to install new front-end dependencies to `src/client/lib` (auto runs `gulp inject-bower` postinstall)
+  - `npm install` - Used as normal (will also run bower install if there are uninstalled dependencies listed in `bower.json`)
+  - `npm start` - Used to start app with BrowserSync, Nodemon, Sass auto-compiling, and auto-injection enabled.
+
+Unfortunately, I've discovered some problems and, while this works overall, there are some ways you can break it or send gulp spiraling into an infinite loop. 
+
+Until I fix these bugs, (or someone else does :D) there's a very specific set of rules to follow when using the included commands to keep everything running smoothly:
+
+
+  - Don't use `bower install` while the server is running. This is most likely going to send gulp into an infinite loop.
+  
+  
+  - Check your index.html after installing any packages through bower to make sure the dependencies were injected correctly. The filtering is not very specific so there's often unwanted/unneeded css/js files that get added. 
+  
+  
+  - If bower injection is really more of a hassle than a help for you, default to sourcing from a CDN as usual, just don't put the CDN tags inside of the auto-injection comments or they will be overwritten.
